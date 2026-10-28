@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Create your account — WhatsApp Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;550;600;700;800;850&display=swap" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<script src="https://js.paystack.co/v2/inline.js"></script>
+<style>
+  #paySection { display: none; border-top: 1px solid var(--bs-border-color); margin-top: 18px; padding-top: 18px; }
+</style>
+</head>
+<body>
+<div class="container-fluid">
+<div class="row min-vh-100">
+  <section class="col-12 col-lg-6 auth-hero">
+    <div class="brand">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3C6.9 3 2.8 6.9 2.8 11.8c0 1.7.5 3.3 1.4 4.7L3 21l4.6-1.2c1.3.7 2.8 1.1 4.4 1.1 5.1 0 9.2-4 9.2-8.9S17.1 3 12 3Z" fill="#fff" opacity=".95"/><path d="M8.6 8.4c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c.6 1.1 1.5 1.9 2.7 2.4l.6-.6c.2-.2.4-.2.6-.1l1.7.8c.4.2.4.4.4.6v.5c0 .3-.1.6-.6.7-.5.2-1.2.2-2.5-.3-2.9-1.1-4.8-3.9-5-4.1-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 .9-2.3Z" fill="#0b7a55"/></svg></span>
+      <span>
+        <span class="brand-name">WhatsApp Marketing</span><br />
+        <span class="brand-sub" style="color:#9fc4ae">Sending suite</span>
+      </span>
+    </div>
+    <div class="auth-hero-main">
+      <h1>Your next promo is <span class="accent">one link away.</span></h1>
+      <p class="lede">Create your account, scan one QR code to link your WhatsApp, and your audience from every group you run is ready to reach — responsibly.</p>
+      <ul class="feature-list">
+        <li><span class="fi"><i class="bi bi-link-45deg"></i></span><span><strong>Free to connect</strong> — link your number first, upgrade only when you send.</span></li>
+        <li><span class="fi"><i class="bi bi-people"></i></span><span><strong>Up to 20,000 contacts</strong> extracted from groups &amp; chats, deduped automatically.</span></li>
+        <li><span class="fi"><i class="bi bi-alarm"></i></span><span><strong>Scheduled promos &amp; status posts</strong>, payment reminders and win-back campaigns.</span></li>
+      </ul>
+    </div>
+    <p class="auth-foot">Three plans. Pick the one that fits. Cancel anytime.</p>
+  </section>
+
+  <section class="col-12 col-lg-6 d-flex align-items-center justify-content-center py-5 px-3 px-md-5">
+    <div class="auth-card wide card p-4 p-md-5">
+      <h1 class="h3 fw-bold">Create your account</h1>
+      <p class="text-secondary">Start sending smarter WhatsApp campaigns today.</p>
+
+      <div class="pricing" id="pricingBox">
+        <h2 class="h5 d-flex align-items-center gap-2">WhatsApp Marketing</h2>
+        <p class="text-secondary mb-0">Three plans — same features, different limits. Pick the one that fits.</p>
+        <div id="tierCards" class="d-flex flex-column gap-2 mt-3"></div>
+        <div class="btn-group w-100 ptoggle mt-3" role="group" aria-label="Billing period">
+          <button type="button" class="btn btn-outline-success active" data-period="monthly">Monthly</button>
+          <button type="button" class="btn btn-outline-success" data-period="yearly">Yearly</button>
+        </div>
+        <div class="price" id="priceLabel">GH₵4.99<small>/month</small></div>
+        <ul class="plimits" id="tierLimits">
+          <li>1 linked WhatsApp number</li>
+          <li>5,000 contacts · 50 lists</li>
+          <li>500 DMs per day · 40 per hour</li>
+          <li>Bulk campaigns, follow-ups, auto-replies, scheduled promos &amp; more</li>
+        </ul>
+        <p class="text-secondary mb-0 mt-3">No free plan — payment activates your account instantly. Connecting your WhatsApp is free.</p>
+      </div>
+
+      <form id="signupForm">
+        <input id="ref" type="hidden" value="" />
+        <div class="form-floating mb-3">
+          <input id="email" type="email" class="form-control" required autocomplete="email" placeholder="you@example.com" />
+          <label for="email">Email</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input id="password" type="password" class="form-control" required minlength="8" autocomplete="new-password" placeholder="Choose a strong password" />
+          <label for="password">Password (min 8 characters)</label>
+        </div>
+        <div class="form-check mt-3">
+          <input id="tos" type="checkbox" class="form-check-input" />
+          <label class="form-check-label small text-secondary" for="tos">I accept the Terms of Service: I will only message people who have consented to receive my messages, and I understand accounts used for spam may be suspended.</label>
+        </div>
+        <p id="msg" class="small text-danger mt-2 mb-0"></p>
+        <button class="btn btn-brand w-100 btn-lg mt-3" type="submit">Create account</button>
+      </form>
+
+      <div id="paySection">
+        <h2 class="h5 mt-0">Activate your plan</h2>
+        <p class="text-secondary" id="payHint">One quick payment and you're in.</p>
+        <div class="d-flex gap-4 flex-wrap my-2">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="payMethod" id="payMethodCard" value="card" checked />
+            <label class="form-check-label" for="payMethodCard">Card <span class="text-secondary">— auto-renews</span></label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="payMethod" id="payMethodMomo" value="momo" />
+            <label class="form-check-label" for="payMethodMomo">Mobile money <span class="text-secondary">— pay each period</span></label>
+          </div>
+        </div>
+        <button class="btn btn-brand" id="payBtn" type="button">Pay now</button>
+        <p id="payMsg" class="small text-danger mt-2 mb-0"></p>
+        <p class="text-secondary small mt-2">Already paid? <a href="#" id="verifyLink">Check payment status</a></p>
+      </div>
+
+      <p class="text-secondary mt-3 mb-0">Already have an account? <a href="/login.html">Log in</a>.</p>
+    </div>
+  </section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const $ = (id) => document.getElementById(id);
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  // Pre-fill the referral code from ?ref=CODE links.
+  $("ref").value = new URLSearchParams(location.search).get("ref") || "";
+  let selectedPeriod = "monthly";
+  let selectedTierId = "pro";
+  let planTiers = [];
+  let lastReference = null;
+
+  function selectedTier() {
+    return planTiers.find((t) => t.id === selectedTierId) || planTiers[0] || null;
+  }
+
+  function renderTierCards() {
+    const box = $("tierCards");
+    if (!planTiers.length) {
+      box.innerHTML = `<p class="text-secondary">Loading plans…</p>`;
+      return;
+    }
+    box.innerHTML = planTiers.map((t) => {
+      const price = t.prices[selectedPeriod];
+      const selected = t.id === selectedTierId;
+      return `<div class="card p-3 tier-card ${selected ? "border-success" : ""}" data-tier="${t.id}" style="cursor:pointer">
+        <div class="d-flex justify-content-between align-items-center gap-2">
+          <strong>${t.name}${t.id === "pro" ? ' <span class="badge rounded-pill text-bg-brand">Most popular</span>' : ""}</strong>
+          <span class="fw-bold">GH₵${price.ghs.toFixed(2)}<small class="text-secondary">/${selectedPeriod === "yearly" ? "year" : "month"}</small></span>
+        </div>
+        <div class="text-secondary small mt-1">${t.limits.maxContacts.toLocaleString()} contacts · ${t.limits.maxLists} lists · ${t.limits.dailyDmCap.toLocaleString()} DMs/day</div>
+      </div>`;
+    }).join("");
+    box.querySelectorAll(".tier-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        selectedTierId = card.dataset.tier;
+        renderTierCards();
+        renderPrice();
+        renderTierLimits();
+        updatePayBtn();
+      });
+    });
+  }
+
+  function renderTierLimits() {
+    const t = selectedTier();
+    if (!t) return;
+    $("tierLimits").innerHTML = `
+      <li>1 linked WhatsApp number</li>
+      <li>${t.limits.maxContacts.toLocaleString()} contacts · ${t.limits.maxLists} lists</li>
+      <li>${t.limits.dailyDmCap.toLocaleString()} DMs per day · ${t.limits.hourlyDmCap} per hour</li>
+      <li>Bulk campaigns, follow-ups, auto-replies, scheduled promos &amp; more</li>`;
+  }
+
+  // Pricing toggle
+  document.querySelectorAll(".ptoggle button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".ptoggle button").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedPeriod = btn.dataset.period;
+      renderTierCards();
+      renderPrice();
+      updatePayBtn();
+    });
+  });
+  function renderPrice() {
+    const t = selectedTier();
+    const p = t?.prices?.[selectedPeriod];
+    if (p) {
+      $("priceLabel").innerHTML = `GH₵${p.ghs.toFixed(2)}<small>/${selectedPeriod === "yearly" ? "year" : "month"}</small>`;
+    }
+  }
+  // Load plan tiers (public endpoint — no login needed).
+  fetch("/api/billing/config").then((r) => r.json()).then((cfg) => {
+    planTiers = Array.isArray(cfg.tiers) ? cfg.tiers : [];
+    renderTierCards();
+    renderPrice();
+    renderTierLimits();
+  }).catch(() => {});
+
+  $("signupForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const msg = $("msg");
+    msg.textContent = "";
+    if (!$("tos").checked) {
+      msg.textContent = "Please accept the Terms of Service to continue.";
+      return;
+    }
+    try {
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: $("email").value.trim(),
+          password: $("password").value,
+          tosAccepted: true,
+          ref: $("ref").value.trim() || undefined
+        })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || "Signup failed.");
+      // Account created (pending_payment). Move to checkout.
+      $("signupForm").style.display = "none";
+      $("pricingBox").style.display = "none";
+      const cfgRes = await fetch("/api/billing/config");
+      const cfg = await cfgRes.json().catch(() => ({}));
+      if (!cfg.configured) {
+        $("paySection").style.display = "block";
+        $("payHint").textContent = "Online payments aren't set up yet — your account is created and ready to use.";
+        $("payBtn").textContent = "Continue to dashboard";
+        $("payBtn").onclick = () => { location.href = "/"; };
+        return;
+      }
+      planTiers = Array.isArray(cfg.tiers) ? cfg.tiers : planTiers;
+      renderTierCards();
+      $("paySection").style.display = "block";
+      updatePayBtn();
+    } catch (err) {
+      msg.textContent = err.message;
+    }
+  });
+
+  function updatePayBtn() {
+    const t = selectedTier();
+    const p = t?.prices?.[selectedPeriod];
+    $("payBtn").textContent = p ? `Pay GH₵${p.ghs.toFixed(2)} ${selectedPeriod === "yearly" ? "for a year" : "for a month"}` : "Pay now";
+  }
+
+  $("payBtn").addEventListener("click", async () => {
+    const payMsg = $("payMsg");
+    payMsg.textContent = "";
+    const method = (document.querySelector('input[name="payMethod"]:checked') || {}).value === "momo" ? "momo" : "card";
+    try {
+      const res = await fetch("/api/billing/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ period: selectedPeriod, tierId: selectedTierId, method })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || "Could not start checkout.");
+      if (typeof PaystackPop === "undefined") throw new Error("Payment library failed to load. Check your connection and try again.");
+      const popup = new PaystackPop();
+      const done = (tx) => { lastReference = tx.reference; pollForActivation(); };
+      const cancelled = () => { payMsg.textContent = "Payment window closed — no charge was made. Click Pay to try again."; };
+      const failed = (err) => { payMsg.textContent = (err && err.message) || "Payment failed. Try again."; };
+      if (data.flow === "plan" && data.accessCode) {
+        // Card with automatic renewal: server initialized WITH the plan code.
+        popup.resumeTransaction(data.accessCode);
+        // resumeTransaction doesn't take callbacks; poll instead.
+        pollForActivation();
+      } else {
+        popup.newTransaction({
+          key: data.key,
+          email: data.email,
+          amount: data.amount,
+          currency: data.currency,
+          reference: data.reference,
+          channels: data.channels,
+          metadata: data.metadata,
+          onSuccess: done,
+          onCancel: cancelled,
+          onError: failed
+        });
+      }
+    } catch (err) {
+      payMsg.textContent = err.message;
+    }
+  });
+
+  async function pollForActivation() {
+    const payMsg = $("payMsg");
+    payMsg.style.color = "#9fb3c8";
+    payMsg.textContent = "Confirming your payment…";
+    const deadline = Date.now() + 90000;
+    while (Date.now() < deadline) {
+      await sleep(3000);
+      try {
+        const s = await fetch("/api/billing/status").then((r) => r.json());
+        if (s && s.status === "active") { location.href = "/"; return; }
+      } catch {}
+    }
+    payMsg.style.color = "";
+    payMsg.textContent = "Still confirming — this can take a minute. Stay on this page; you'll be let in automatically.";
+  }
+
+  $("verifyLink").addEventListener("click", async (e) => {
+    e.preventDefault();
+    const payMsg = $("payMsg");
+    payMsg.textContent = "";
+    if (!lastReference) {
+      // No reference from this session — just re-check status (webhook may have landed).
+      try {
+        const s = await fetch("/api/billing/status").then((r) => r.json());
+        if (s && s.status === "active") { location.href = "/"; return; }
+        payMsg.textContent = "No completed payment found yet. If you paid, wait a minute and try again.";
+      } catch { payMsg.textContent = "Could not check status. Try again."; }
+      return;
+    }
+    try {
+      const res = await fetch("/api/billing/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reference: lastReference })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && (data.activated || data.status === "active")) { location.href = "/"; return; }
+      payMsg.textContent = data.error || "Payment not confirmed yet — try again in a minute.";
+    } catch {
+      payMsg.textContent = "Could not verify. Try again in a minute.";
+    }
+  });
+</script>
+</body>
+</html>
